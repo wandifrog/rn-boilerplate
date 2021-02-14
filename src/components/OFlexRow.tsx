@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentMetrics } from '../types/Component'
-import { FlexAlignType, FlexStyle, View, ViewStyle } from 'react-native'
+import { FlexAlignType, View, ViewStyle } from 'react-native'
 
 type OFlexProps = ComponentMetrics & {
   children: React.ReactNode
@@ -35,14 +35,14 @@ type OFlexProps = ComponentMetrics & {
 }
 
 /**
- * Pokemon flex component.
+ * Orbit flex component.
  * @example
- * <PFlex>
+ * <OFlex>
  *   <div>Hello</div>
  *   <div>wWrld</div>
- * </PFlex>
+ * </OFlex>
  */
-const PFlex = ({
+const OFlex = ({
   children,
   top,
   bottom,
@@ -69,8 +69,6 @@ const PFlex = ({
   }
 
   return <View style={flexstyle} {...props}>{children}</View>
-
-  // return <Flex style={flexstyle} {...props}>{children}</Flex>
 }
 
-export default PFlex
+export default OFlex

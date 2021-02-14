@@ -1,11 +1,11 @@
 import React from 'react'
 
-const appContextPersist = localStorage.getItem('app-context-persist')
-const appContextPersistJson: AppState | null = appContextPersist && JSON.parse(appContextPersist)
-const initialState = appContextPersistJson || {
+const initialState = {
   darkMode: true,
-  language: 'en',
-  myPokemonList: []
+  language: 'id',
+  navigation: {},
+  modemData: {},
+  screen: {}
 }
 
 const AppStateContext = React.createContext<AppState | undefined>(undefined)
@@ -30,8 +30,6 @@ function appReducer(prevState: AppState, action: AppAction): AppState {
 
 function AppProvider({ children }: { children: React.ReactNode }): JSX.Element {
   const [state, dispatch] = React.useReducer(appReducer, initialState)
-
-  localStorage.setItem('app-context-persist', JSON.stringify(state))
 
   return (
     <AppStateContext.Provider value={state}>

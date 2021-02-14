@@ -22,7 +22,7 @@ export const formatDate = (
   const DAYS_EN = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
   const MONTHS_ID = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember']
   const MONTHS_EN = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'Oktober', 'November', 'December']
-  
+
   const days = lang === 'id' ? DAYS_ID : DAYS_EN
   const month = lang === 'id' ? MONTHS_ID : MONTHS_EN
   const _date = new Date(date)
@@ -37,6 +37,7 @@ export const formatDate = (
     if (_format === 'c') return ','
     if (_format === 's') return ' '
   }
+
   const result = format.split(' ').map((x) => formateDateToString(x))
   return result.join('')
 }

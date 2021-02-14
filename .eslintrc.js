@@ -16,8 +16,8 @@ module.exports = {
   plugins: [],
   reportUnusedDisableDirectives: true,
   rules: {
-    '@typescript-eslint/explicit-module-boundary-types': OFF,
     '@typescript-eslint/explicit-function-return-type': OFF,
+    '@typescript-eslint/explicit-module-boundary-types': OFF,
     '@typescript-eslint/member-delimiter-style': OFF,
     '@typescript-eslint/no-empty-function': OFF,
     'react-native/no-inline-styles': OFF,
@@ -25,6 +25,7 @@ module.exports = {
     'arrow-parens': [ERR, 'always'],
     'comma-dangle': [ERR, 'never'],
     'comma-spacing': [ERR, { 'before': false, 'after': true }],
+    'curly': [ERR, 'multi'],
     'eol-last': [WRN, 'always'],
     'eqeqeq': WRN,
     'indent': [ERR, 2, { 'SwitchCase': 1 }],

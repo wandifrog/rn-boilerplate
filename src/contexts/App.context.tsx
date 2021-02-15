@@ -1,9 +1,14 @@
 import React from 'react'
 
-const initialState = {
+const initialState: AppState = {
   darkMode: true,
   language: 'id',
-  navigation: {},
+  navigation: {
+    params: null,
+    default: null,
+    stacks: [],
+    current: 'Home'
+  },
   modemData: {},
   screen: {}
 }
@@ -19,8 +24,8 @@ function appReducer(prevState: AppState, action: AppAction): AppState {
     case 'CHANGE_LANGUAGE': {
       return { ...prevState, language: prevState.language === 'id' ? 'en' : 'id' }
     }
-    case 'UPDATE_MY_POKEMON_LIST': {
-      return { ...prevState, myPokemonList: action.data }
+    case 'SET_NAVIGATION': {
+      return { ...prevState }
     }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`)

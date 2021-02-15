@@ -10,8 +10,8 @@ export function gacha(): boolean {
  */
 export function capitalizeEveryWord(sentence: string): string {
   const replaceDash = sentence.replace('-', ' ')
-  const sanitizeSentence = replaceDash.replace(/^\s+|\s+$/g, '') 
-  const sanitizeSentence2 = sanitizeSentence.replace(/[ \t]{2,}/g, ' ') // remove multipe spaces
+  const sanitizeSentence = replaceDash.replace(/^\s+|\s+$/g, '')
+  const sanitizeSentence2 = sanitizeSentence.replace(/[ \t]{2,}/g, ' ') // remove multiple spaces
   const words = sanitizeSentence2.split(' ')
   const capitalizeWords = []
 
@@ -22,4 +22,9 @@ export function capitalizeEveryWord(sentence: string): string {
 
   const result = capitalizeWords.join(' ')
   return result
+}
+
+// TODO: JSDocs
+export function dpi(x: number) {
+  return x * 2
 }

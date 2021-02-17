@@ -7,15 +7,17 @@ const initialState: AppState = {
     params: null,
     default: null,
     stacks: [],
-    current: 'Home'
+    current: 'HomeScreen'
   },
   modemData: {},
-  screen: {}
+  memberData: {},
+  screen: {} // screen || module || feature || flow
 }
 
 const AppStateContext = React.createContext<AppState | undefined>(undefined)
 const AppDispatchContext = React.createContext<AppDispatch | undefined>(undefined)
 
+// Ugly reducer - still research for build better and elegance reducer code
 function appReducer(prevState: AppState, action: AppAction): AppState {
   switch (action.type) {
     case 'CHANGE_THEME': {
@@ -25,10 +27,16 @@ function appReducer(prevState: AppState, action: AppAction): AppState {
       return { ...prevState, language: prevState.language === 'id' ? 'en' : 'id' }
     }
     case 'SET_NAVIGATION': {
-      return { ...prevState }
+      return { ...prevState, navigation: action.navigation }
+    }
+    case 'SET_MODEM_DATA': {
+      return { ...prevState, modemData: action.modemData }
+    }
+    case 'SET_MEMBER_DATA': {
+      return { ...prevState, memberData: action.memberData }
     }
     default: {
-      throw new Error(`Unhandled action type: ${action.type}`)
+      return prevState
     }
   }
 }

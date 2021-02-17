@@ -20,7 +20,7 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': OFF,
     '@typescript-eslint/member-delimiter-style': OFF,
     '@typescript-eslint/no-empty-function': OFF,
-    'react-native/no-inline-styles': OFF,
+    '@typescript-eslint/type-annotation-spacing': ERR,
     'array-element-newline': [ERR, 'consistent'],
     'arrow-parens': [ERR, 'always'],
     'comma-dangle': [ERR, 'never'],
@@ -29,12 +29,14 @@ module.exports = {
     'eol-last': [WRN, 'always'],
     'eqeqeq': WRN,
     'indent': [ERR, 2, { 'SwitchCase': 1 }],
+    'key-spacing': [ERR, { 'beforeColon': false }],
     'no-alert': OFF,
     'no-console': WRN,
     'no-multi-spaces': [ERR],
     'object-curly-spacing': [ERR, 'always'],
     'prettier/prettier': OFF,
     'quotes': [ERR, 'single'],
+    'react-native/no-inline-styles': OFF,
     'semi': [ERR, 'never']
   }
 }

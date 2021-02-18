@@ -1,24 +1,22 @@
-import * as CSS from 'csstype'
-
 type ComponentMetrics = {
   /**
    * Padding
    */
-  padding?: CSS.Property.Padding
+  padding?: number
   /**
    * Margin top
    */
-  top?: CSS.Property.MarginTop
+  top?: number
   /**
    * Margin right
    */
-  right?: CSS.Property.MarginRight
+  right?: number
   /**
    * Margin bottom
    */
-  bottom?: CSS.Property.MarginBottom
+  bottom?: number
   /**
    * Margin left
    */
-  left?: CSS.Property.MarginLeft
+  left?: number
 }

@@ -1,10 +1,12 @@
 import React from 'react'
-import { Text } from 'react-native'
+import OText from '../components/OText'
 
 const LoginScreen = () => {
 
   return (
-    <Text>Login screen</Text>
+    <React.Fragment>
+      <OText size={20} center bold>Selamat Datang</OText>
+    </React.Fragment>
   )
 }
 

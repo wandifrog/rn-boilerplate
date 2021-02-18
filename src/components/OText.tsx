@@ -1,58 +1,69 @@
-// Core
-import * as React from 'react'
+import React from 'react'
+import { Text, TextProps, TextStyle } from 'react-native'
+import useTheme from '../hooks/Theme.hook'
 
-// Components
-import CColors from '../Components/CColors'
-import CText from '../Components/CText'
-
+type OTextProps = ComponentMetrics & TextProps & {
+  children: React.ReactNode | string
+  /**
+   * Font weight
+   */
+  bold?: boolean
+  /**
+   * Font weight
+   */
+  color?: string
+  /**
+   * Text align center
+   */
+  center?: boolean
+  /**
+   * Font size
+   */
+  size?: number
+  /**
+   * Line Height
+   */
+  lineHeight?: number
+  /**
+   * Span element
+   */
+  span?: boolean
+}
 
 /**
  * Orbit text component.
  * @example
- * <CTextApp>Hello</CTextApp>
- * <CTextApp left={5} size={10}>World</CTextApp>
- * <CTextApp bold center color="red">!!</CTextApp>
- * @param {any} props
- * @param {number} size - font size.
- * @param {boolean} bold - font weight bold.
- * @param {boolean} center - text align center.
- * @param {string} color - font color.
- * @param {number} top - margin top.
- * @param {number} right - margin right.
- * @param {number} bottom - margin bottom.
- * @param {number} left - margin left.
- * @param {object} style - custom style.
+ * <OText>Hello</OText>
+ * <OText left={5} size={10}>World</OText>
+ * <OText bold center color="red">!!</OText>
  */
-const CTextApp = ({
+const OText = ({
   children,
-  size = 14,
-  bold = false,
-  center = false,
-  color = CColors.blackTwo || 'initial',
   top = 0,
   right = 0,
   bottom = 0,
   left = 0,
-  style = {},
+  bold = false,
+  center = false,
+  color,
+  size = 14,
+  style,
   ...props
-}) => {
+}: OTextProps): JSX.Element => {
+  const colors = useTheme()
 
-  return <CText
-    style={{
-      fontSize: size,
-      color,
-      marginTop: top,
-      marginRight: right,
-      marginBottom: bottom,
-      marginLeft: left,
-      textAlign: center ? 'center' : 'left',
-      ...style
-    }}
-    bold={bold}
-    {...props}
-  >
-    {children}
-  </CText>
+  const textStyle: TextStyle = {
+    color: color || colors.text,
+    fontSize: size,
+    fontWeight: bold ? 'bold' : 'normal',
+    textAlign: center ? 'center' : undefined,
+    marginTop: top,
+    marginRight: right,
+    marginBottom: bottom,
+    marginLeft: left
+  }
+
+  return <Text style={[textStyle, style]} {...props}>{children}</Text>
 }
 
-export default CTextApp
+export default OText

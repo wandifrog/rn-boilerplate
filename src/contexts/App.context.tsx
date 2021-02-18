@@ -1,7 +1,7 @@
 import React from 'react'
 
 const initialState: AppState = {
-  darkMode: true,
+  darkMode: false,
   language: 'id',
   navigation: {
     params: null,

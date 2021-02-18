@@ -16,6 +16,8 @@ module.exports = {
   plugins: [],
   reportUnusedDisableDirectives: true,
   rules: {
+    'prettier/prettier': OFF,
+    'react-native/no-inline-styles': OFF,
     '@typescript-eslint/explicit-function-return-type': OFF,
     '@typescript-eslint/explicit-module-boundary-types': OFF,
     '@typescript-eslint/member-delimiter-style': OFF,
@@ -34,9 +36,7 @@ module.exports = {
     'no-console': WRN,
     'no-multi-spaces': [ERR],
     'object-curly-spacing': [ERR, 'always'],
-    'prettier/prettier': OFF,
     'quotes': [ERR, 'single'],
-    'react-native/no-inline-styles': OFF,
     'semi': [ERR, 'never']
   }
 }

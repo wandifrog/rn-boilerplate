@@ -19,7 +19,6 @@ function useNavigation() {
       stacks
     }
     dispatch({ type: 'SET_NAVIGATION', navigation: newNavigation })
-    alert('push')
   }
 
   function forcePush() {

@@ -1,9 +1,9 @@
-import failedGacha from '../assets/images/failed-gacha.jpg'
-import pokeBall from '../assets/images/poke-ball.png'
-import successGacha from '../assets/images/success-gacha.jpg'
+// import waveImage from '../assets/images/wave-image.png'
+// import orbitLogo from '../assets/images/orbit-logo.png'
+// import languageIdCircle from '../assets/images/language-id-circle.png'
 
-export const images = {
-  failedGacha,
-  pokeBall,
-  successGacha
-}
+// export const images = {
+//   waveImage,
+//   orbitLogo,
+//   languageIdCircle
+// }

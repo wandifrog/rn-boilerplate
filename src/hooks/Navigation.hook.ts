@@ -6,24 +6,38 @@ function useNavigation() {
 
   function goBack() {
     // pop stack
-    alert('go back')
+    const newStacks: Screens[] = [...navigation.stacks]
+    const current: Screens = newStacks.pop() || navigation.default
+    const newNavigation: Navigation = {
+      ...navigation,
+      current,
+      stacks: newStacks
+    }
+    dispatch({ type: 'SET_NAVIGATION', navigation: newNavigation })
   }
 
   function push(newScreen: Screens, params = null) {
     // push stack
     const stacks = [...navigation.stacks, newScreen]
     const newNavigation: Navigation = {
+      ...navigation,
       params,
       current: newScreen,
-      default: null,
       stacks
     }
     dispatch({ type: 'SET_NAVIGATION', navigation: newNavigation })
   }
 
-  function forcePush() {
+  function forcePush(newScreen: Screens, params = null) {
     // clear stack and push new stack
-    alert('force push')
+    const newNavigation: Navigation = {
+      ...navigation,
+      params,
+      current: newScreen,
+      default: newScreen,
+      stacks: []
+    }
+    dispatch({ type: 'SET_NAVIGATION', navigation: newNavigation })
   }
 
   return { goBack, push, forcePush }

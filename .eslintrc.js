@@ -22,6 +22,7 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': OFF,
     '@typescript-eslint/member-delimiter-style': OFF,
     '@typescript-eslint/no-empty-function': OFF,
+    '@typescript-eslint/no-var-requires': OFF,
     '@typescript-eslint/type-annotation-spacing': ERR,
     'array-element-newline': [ERR, 'consistent'],
     'arrow-parens': [ERR, 'always'],

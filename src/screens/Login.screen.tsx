@@ -6,7 +6,7 @@ const LoginScreen = () => {
 
   return (
     <React.Fragment>
-      <OText size={dpi(17)} center bold>Selamat Datang</OText>
+      <OText top={100} size={dpi(17)} center bold>Selamat Datang</OText>
     </React.Fragment>
   )
 }

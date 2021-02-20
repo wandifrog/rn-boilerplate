@@ -3,13 +3,13 @@ import { Text, TextProps, TextStyle } from 'react-native'
 import useTheme from '../hooks/Theme.hook'
 
 type OTextProps = ComponentMetrics & TextProps & {
-  children: React.ReactNode | string
+  children: string
   /**
-   * Font weight
+   * Font weight bold
    */
   bold?: boolean
   /**
-   * Font weight
+   * Text color
    */
   color?: string
   /**
@@ -24,10 +24,6 @@ type OTextProps = ComponentMetrics & TextProps & {
    * Line Height
    */
   lineHeight?: number
-  /**
-   * Span element
-   */
-  span?: boolean
 }
 
 /**

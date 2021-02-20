@@ -18,9 +18,9 @@ type AppDispatch = (action: AppAction) => void
 
 type Navigation = {
   current: Screens
-  default: null | string
+  default: Screens
   params: unknown
-  stacks: string[]
+  stacks: Screens[]
 }
 
 type Screens =

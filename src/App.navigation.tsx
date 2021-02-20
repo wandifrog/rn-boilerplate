@@ -1,36 +1,37 @@
 import React from 'react'
-import { SafeAreaView } from 'react-native'
 import DashboardScreen from './screens/Dashboard.screen'
 import HomeScreen from './screens/Home.screen'
 import LoginScreen from './screens/Login.screen'
 import useApp from './hooks/App.hook'
 
-const App = () => {
+const Navigation = () => {
   const [state] = useApp()
   const { current } = state.navigation
-  let presentationScreen: null | JSX.Element = null
 
-  // navigate animation on progress
+  // eslint-disable-next-line no-console
+  console.log(
+    '%cContext State:',
+    'color: orange; font-weight: bold',
+    state
+  )
 
-  switch (current) {
+  return React.useMemo(() => <PresentationScreen screen={current} />, [current])
+}
+
+const PresentationScreen = ({
+  screen
+}: { screen: Screens }) => {
+
+  switch (screen) {
     case 'HomeScreen':
-      presentationScreen = <HomeScreen />
-      break
+      return <HomeScreen />
     case 'LoginScreen':
-      presentationScreen = <LoginScreen />
-      break
+      return <LoginScreen />
     case 'DashboardScreen':
-      presentationScreen = <DashboardScreen />
-      break
+      return <DashboardScreen />
     default:
       throw new Error('Screen not found')
   }
-
-  return (
-    <SafeAreaView>
-      {presentationScreen}
-    </SafeAreaView>
-  )
 }
 
-export default App
+export default Navigation

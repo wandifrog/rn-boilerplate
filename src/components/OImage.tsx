@@ -1,8 +1,8 @@
 import React from 'react'
-import { Image, Text, TextProps, TextStyle } from 'react-native'
+import { Image, ImageProps, ImageStyle } from 'react-native'
 import useTheme from '../hooks/Theme.hook'
 
-type OImageProps = ComponentMetrics & TextProps & {
+type OImageProps = ComponentMetrics & ImageProps & {
   children: React.ReactNode | string
   /**
    * Font weight
@@ -31,9 +31,9 @@ type OImageProps = ComponentMetrics & TextProps & {
 }
 
 /**
- * Orbit text component.
+ * Orbit image component.
  * @example
- * <OImage>Hello</OImage>
+ * <OImage />
  */
 const OImage = ({
   children,
@@ -50,7 +50,7 @@ const OImage = ({
 }: OImageProps): JSX.Element => {
   const colors = useTheme()
 
-  const textStyle: TextStyle = {
+  const imageStyle: ImageStyle = {
     color: color || colors.text,
     fontSize: size,
     fontWeight: bold ? 'bold' : 'normal',
@@ -63,7 +63,7 @@ const OImage = ({
 
   return <Image source={} />
 
-  return <Text style={[textStyle, style]} {...props}>{children}</Text>
+  // return <Text style={[textStyle, style]} {...props}>{children}</Text>
 }
 
 export default OImage

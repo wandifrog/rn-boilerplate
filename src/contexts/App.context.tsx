@@ -4,10 +4,10 @@ const initialState: AppState = {
   darkMode: false,
   language: 'id',
   navigation: {
+    current: 'HomeScreen',
     params: null,
     default: null,
-    stacks: [],
-    current: 'HomeScreen'
+    stacks: []
   },
   modemData: {},
   memberData: {},
@@ -32,8 +32,8 @@ function appReducer(prevState: AppState, action: AppAction): AppState {
     case 'SET_MODEM_DATA': {
       return { ...prevState, modemData: action.modemData }
     }
-    case 'SET_MEMBER_DATA': {
-      return { ...prevState, memberData: action.memberData }
+    case 'SET_MODEM_DATA': {
+      return { ...prevState, memberData: action.modemData }
     }
     default: {
       return prevState

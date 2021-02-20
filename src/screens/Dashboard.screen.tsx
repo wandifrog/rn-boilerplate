@@ -1,11 +1,18 @@
 import React from 'react'
-import { Text } from 'react-native'
+import { Text, TouchableOpacity } from 'react-native'
+import useNavigation from '../hooks/Navigation.hook'
 
-const DashboardScreen = () => {
+const DasboardScreen = () => {
+  const navigation = useNavigation()
 
   return (
-    <Text>Dashboard screen</Text>
+    <React.Fragment>
+      <Text>DashboardScreen</Text>
+      <TouchableOpacity onPress={() => navigation.push('HomeScreen')}>
+        <Text>Click Me</Text>
+      </TouchableOpacity>
+    </React.Fragment>
   )
 }
 
-export default DashboardScreen
+export default DasboardScreen

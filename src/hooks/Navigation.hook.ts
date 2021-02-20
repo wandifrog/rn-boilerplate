@@ -1,15 +1,14 @@
 import { BackHandler } from 'react-native'
+import { arrayIsEmpty } from '../functions/Common.function'
 import useApp from './App.hook'
 
 function useNavigation() {
   const [state, dispatch] = useApp()
   const { navigation } = state
 
-  const goBack = () => {
+  function goBack() {
     // pop stack
-    if (navigation.stacks.length === 0) {
-      return BackHandler.exitApp()
-    }
+    if (arrayIsEmpty(navigation.stacks)) return BackHandler.exitApp()
 
     const newStacks: Screens[] = navigation.stacks.slice(0, -1)
     const current: Screens = newStacks[newStacks.length - 1] || navigation.default

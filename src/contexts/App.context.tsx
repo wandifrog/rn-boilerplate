@@ -6,7 +6,7 @@ const initialState: AppState = {
   navigation: {
     current: 'HomeScreen',
     params: null,
-    default: null,
+    default: 'HomeScreen',
     stacks: []
   },
   modemData: {},

@@ -23,7 +23,7 @@ const App = () => {
 }
 
 const SplashScreen = () => {
-  // don't use orbit components
+  // don't use Orbit components
 
   return (
     <View style={{

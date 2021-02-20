@@ -28,3 +28,8 @@ export function capitalizeEveryWord(sentence: string): string {
 export function dpi(x: number) {
   return x * 2
 }
+
+// TODO: JSDocs
+export function arrayIsEmpty(arr: any[]) {
+  return arr.length === 0
+}

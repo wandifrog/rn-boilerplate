@@ -1,13 +1,15 @@
 import React from 'react'
-import { SafeAreaView, Text } from 'react-native'
+import { Image, SafeAreaView, Text, View } from 'react-native'
 import Navigation from './App.navigation'
+import { images } from './constants/Images.constant'
 import { AppProvider } from './contexts/App.context'
+import { dpi } from './functions/Common.function'
 
 const App = () => {
   const [splashScreen, setSplashScreen] = React.useState(true)
 
   React.useEffect(() => {
-    setTimeout(() => setSplashScreen(false), 3000)
+    setTimeout(() => setSplashScreen(false), 1200)
   }, [])
 
   return (
@@ -21,16 +23,48 @@ const App = () => {
 }
 
 const SplashScreen = () => {
+  // don't use orbit components
 
   return (
-    <React.Fragment>
-      <Text style={{
-        fontSize: 25,
-        fontWeight: 'bold',
-        marginTop: '40%',
-        textAlign: 'center'
-      }}>Splash Screen</Text>
-    </React.Fragment>
+    <View style={{
+      position: 'relative',
+      width: '100%',
+      height: '100%'
+    }}>
+      <View style={{
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        <Image source={images.orbitLogo2x} style={{
+          width: dpi(100),
+          height: dpi(45)
+        }} />
+      </View>
+      <Image source={images.splashScreenWave} resizeMode="stretch"
+        style={{
+          position: 'absolute',
+          bottom: 0,
+          width: '100%',
+          height: '24%'
+        }} />
+      <View style={{
+        position: 'absolute',
+        bottom: '4%',
+        width: '100%',
+        backgroundColor: 'transparent'
+      }}>
+        <Text style={{
+          fontSize: dpi(6),
+          color: 'white',
+          textAlign: 'center'
+        }}>
+          Versi Aplikasi 1.0.0
+        </Text>
+      </View>
+    </View>
   )
 }
 

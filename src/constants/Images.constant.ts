@@ -1,9 +1,13 @@
-import waveImage from '../assets/images/wave-image.png'
-import orbitLogo from '../assets/images/orbit-logo.png'
 const languageIdCircle = require('../assets/images/language-id-circle.png')
+const orbitLogo = require('../assets/images/orbit-logo.png')
+const orbitLogo2x = require('../assets/images/orbit-logo-2x.png')
+const splashScreenWave = require('../assets/images/splash-screen-wave.png')
+const waveImage = require('../assets/images/language-id-circle.png')
 
 export const images = {
-  waveImage,
+  languageIdCircle,
   orbitLogo,
-  languageIdCircle
+  orbitLogo2x,
+  splashScreenWave,
+  waveImage
 }

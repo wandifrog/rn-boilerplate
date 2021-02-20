@@ -38,6 +38,7 @@ module.exports = {
     'no-multi-spaces': [ERR],
     'object-curly-spacing': [ERR, 'always'],
     'quotes': [ERR, 'single'],
-    'semi': [ERR, 'never']
+    'semi': [ERR, 'never'],
+    'space-in-parens': [ERR, 'never']
   }
 }

@@ -36,9 +36,12 @@ module.exports = {
     'no-alert': OFF,
     'no-console': WRN,
     'no-multi-spaces': [ERR],
+    'no-multiple-empty-lines': [ERR, { 'max': 2 }],
     'object-curly-spacing': [ERR, 'always'],
     'quotes': [ERR, 'single'],
     'semi': [ERR, 'never'],
+    'space-before-blocks': [ERR, 'always'],
+    'space-before-function-paren': [ERR, 'never'],
     'space-in-parens': [ERR, 'never']
   }
 }

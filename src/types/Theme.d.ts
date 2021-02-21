@@ -3,7 +3,9 @@
 // }
 
 type Colors = {
+  black: string
+  buttonRed: string
   text: string
-  button: string
+  white_100: string
   white_75: string
 }

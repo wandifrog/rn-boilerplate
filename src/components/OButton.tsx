@@ -1,74 +1,75 @@
-// Core
 import React from 'react'
-import {
-  TouchableOpacity,
-  ActivityIndicator
-} from 'react-native'
+import { ActivityIndicator, TouchableOpacity, ViewStyle } from 'react-native'
+import { dpi } from '../functions/Common.function'
+import useTheme from '../hooks/Theme.hook'
+import OText from './OText'
 
-// Helper
-import { dpi } from '../Helper/MobileHelper'
-
-// Components
-import CColors from './CColors'
-import CTextApp from './CTextApp'
+type OButtonProps = ComponentMetrics & {
+  /**
+   * Button label
+   */
+  label?: string
+  /**
+   * Button action when pressed
+   */
+  onPress?: () => void
+  /**
+   * Button loading state.
+   */
+  loading?: boolean
+  /**
+   * Button can't be pressed.
+   */
+  disabled?: boolean
+}
 
 
 /**
  * Orbit default button component.
  * @example
- * <CButtonApp />
- * <CButtonApp simple/>
- * <CButtonApp label="Lanjutkan" />
- * <CButtonApp label="Mengerti" onPress={() => alert('hello world')} />
- * <CButtonApp label="Aktivasi" loading />
- * <CButtonApp label="Aktivasi" disabled />
- * @param {any} props
- * @param {string} label - button name.
- * @param {boolean} simple - for black and white button.
- * @param {function} onPress - button action when pressed.
- * @param {boolean} loading - button loading state.
- * @param {boolean} disabled - button can't be pressed.
- * @param {number} top - margin top.
- * @param {number} bottom - margin bottom.
+ * <OButton />
+ * <OButton label="Lanjutkan" />
+ * <OButton label="Mengerti" onPress={() => alert('hello world')} />
+ * <OButton label="Aktivasi" loading />
+ * <OButton label="Aktivasi" disabled />
  */
-const CButtonApp = ({
+const OButton = ({
+  top,
+  bottom,
   label = 'Button',
-  simple = false,
-  onPress = () => { },
+  onPress = () => {},
   loading = false,
-  disabled = false,
-  top = 0,
-  bottom = 0,
-  style = {},
-  ...props
-}) => {
+  disabled = false
+}: OButtonProps): JSX.Element => {
+  const colors = useTheme()
 
-  if (loading) {disabled = true}
+  if (loading) disabled = true
 
-  const buttonStyle = {
-    width: '100%',
+  const buttonStyle: ViewStyle = {
     marginTop: top,
     marginBottom: bottom,
+    width: '100%',
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: dpi(10),
     borderWidth: dpi(0.5),
     paddingVertical: dpi(4),
-    borderColor: disabled ? CColors.greyFive : simple ? CColors.grey100 : CColors.red100,
-    backgroundColor: disabled ? CColors.greyFive : simple ? CColors.white : CColors.red100,
-    ...style
+    borderColor: disabled ? 'gray' : colors.buttonRed,
+    backgroundColor: disabled ? 'gray' : colors.buttonRed
   }
-  const buttonFontColor = simple ? CColors.blackTwo : CColors.white
+
+
+  const buttonLabelColor = colors.black
 
   return (
-    <TouchableOpacity style={buttonStyle} onPress={() => onPress()} disabled={disabled} {...props}>
+    <TouchableOpacity style={buttonStyle} onPress={() => onPress()} disabled={disabled}>
       {
         loading
-          ? <ActivityIndicator color={CColors.white} />
-          : <CTextApp size={dpi(8)} color={buttonFontColor} center bold>{label}</CTextApp>
+          ? <ActivityIndicator color={colors.white_100} />
+          : <OText size={dpi(8)} color={buttonLabelColor} center bold>{label}</OText>
       }
     </TouchableOpacity>
   )
 }
 
-export default CButtonApp
+export default OButton

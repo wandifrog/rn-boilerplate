@@ -1,67 +1,51 @@
 import React from 'react'
-import { Image, ImageProps, ImageStyle } from 'react-native'
-import useTheme from '../hooks/Theme.hook'
+import { Image, ImageProps, ImageSourcePropType, ImageStyle } from 'react-native'
+import { images } from '../constants/Images.constant'
 
 type OImageProps = ComponentMetrics & ImageProps & {
-  children: React.ReactNode | string
   /**
-   * Font weight
+   * Image height
    */
-  bold?: boolean
+  height?: number
   /**
-   * Font weight
+   * Image width
    */
-  color?: string
+  width?: number
   /**
-   * Text align center
+   * Image source
    */
-  center?: boolean
-  /**
-   * Font size
-   */
-  size?: number
-  /**
-   * Line Height
-   */
-  lineHeight?: number
-  /**
-   * Span element
-   */
-  span?: boolean
+  source?: ImageSourcePropType
 }
 
 /**
  * Orbit image component.
  * @example
  * <OImage />
+ * <OImage source={images.orbit} />
+ * <OImage source={{uri: 'LINK_IMAGEE'}} />
  */
 const OImage = ({
-  children,
   top = 0,
   right = 0,
   bottom = 0,
   left = 0,
-  bold = false,
-  center = false,
-  color,
-  size = 14,
+  height = 300,
+  width = 300,
+  source = images.orbitLogo,
   style,
   ...props
 }: OImageProps): JSX.Element => {
-  const colors = useTheme()
 
   const imageStyle: ImageStyle = {
-    color: color || colors.text,
-    fontSize: size,
-    fontWeight: bold ? 'bold' : 'normal',
-    textAlign: center ? 'center' : undefined,
     marginTop: top,
     marginRight: right,
     marginBottom: bottom,
-    marginLeft: left
+    marginLeft: left,
+    width,
+    height
   }
 
-  return <Image source={} />
+  return <Image source={source} style={[imageStyle, style]} {...props} />
 
   // return <Text style={[textStyle, style]} {...props}>{children}</Text>
 }

@@ -1,16 +1,12 @@
 import React from 'react'
 import { FlexAlignType, View, ViewStyle } from 'react-native'
 
-type OFlexRowProps = ComponentMetrics & {
+type OViewProps = ComponentMetrics & {
   children: React.ReactNode
   /**
    * Align items
    */
   align?: FlexAlignType
-  /**
-   * Flex direction
-   */
-  flexDirection?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
   /**
    * Height
    */
@@ -34,21 +30,20 @@ type OFlexRowProps = ComponentMetrics & {
 }
 
 /**
- * Orbit flex component.
+ * Orbit view component.
  * @example
- * <OFlex>
+ * <OView>
  *   <OText>Hello</OText>
  *   <OText>wWrld</OText>
- * </OFlex>
+ * </OView>
  */
-const OFlexRow = ({
+const OView = ({
   children,
   top,
   right,
   bottom,
   left,
   align,
-  flexDirection = 'row',
   height,
   justify,
   padding,
@@ -57,15 +52,14 @@ const OFlexRow = ({
   style,
   width,
   ...props
-}: OFlexRowProps): JSX.Element => {
+}: OViewProps): JSX.Element => {
 
-  const flexRowStyle: ViewStyle = {
+  const viewStyle: ViewStyle = {
     marginTop: top,
     marginRight: right,
     marginBottom: bottom,
     marginLeft: left,
     alignItems: align,
-    flexDirection,
     height,
     justifyContent: justify,
     padding,
@@ -75,7 +69,7 @@ const OFlexRow = ({
     ...style
   }
 
-  return <View style={flexRowStyle} {...props}>{children}</View>
+  return <View style={viewStyle} {...props}>{children}</View>
 }
 
-export default OFlexRow
+export default OView

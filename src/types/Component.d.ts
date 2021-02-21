@@ -4,6 +4,14 @@ type ComponentMetrics = {
    */
   padding?: number
   /**
+   * Padding horizontal
+   */
+  paddingHorizontal?: number
+  /**
+   * Padding vertical
+   */
+  paddingVertical?: number
+  /**
    * Margin top
    */
   top?: number

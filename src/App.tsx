@@ -22,6 +22,7 @@ const App = () => {
   )
 }
 
+
 const SplashScreen = () => {
   // don't use Orbit components
 

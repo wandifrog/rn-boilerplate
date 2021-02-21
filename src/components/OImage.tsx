@@ -1,21 +1,8 @@
 import React from 'react'
-import { Image, ImageProps, ImageSourcePropType, ImageStyle } from 'react-native'
-import { images } from '../constants/Images.constant'
+import { Image, ImageProps, ImageResizeMode, ImageSourcePropType, ImageStyle } from 'react-native'
+import images from '../constants/Images.constant'
 
-type OImageProps = ComponentMetrics & ImageProps & {
-  /**
-   * Image height
-   */
-  height?: number
-  /**
-   * Image width
-   */
-  width?: number
-  /**
-   * Image source
-   */
-  source?: ImageSourcePropType
-}
+type OImageProps = ComponentMetrics & ImageProps
 
 /**
  * Orbit image component.
@@ -32,7 +19,6 @@ const OImage = ({
   height = 300,
   width = 300,
   source = images.orbitLogo,
-  style,
   ...props
 }: OImageProps): JSX.Element => {
 
@@ -45,9 +31,8 @@ const OImage = ({
     height
   }
 
-  return <Image source={source} style={[imageStyle, style]} {...props} />
-
-  // return <Text style={[textStyle, style]} {...props}>{children}</Text>
+  return <Image width={width} height={height}
+    source={source} style={imageStyle} {...props} />
 }
 
 export default OImage

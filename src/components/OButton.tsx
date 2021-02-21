@@ -6,6 +6,10 @@ import OText from './OText'
 
 type OButtonProps = ComponentMetrics & {
   /**
+   * Button with white background
+   */
+  backgroundWhite?: boolean
+  /**
    * Button label
    */
   label?: string
@@ -23,11 +27,11 @@ type OButtonProps = ComponentMetrics & {
   disabled?: boolean
 }
 
-
 /**
  * Orbit default button component.
  * @example
  * <OButton />
+ * <OButton backgroundWhite />
  * <OButton label="Lanjutkan" />
  * <OButton label="Mengerti" onPress={() => alert('hello world')} />
  * <OButton label="Aktivasi" loading />
@@ -36,6 +40,7 @@ type OButtonProps = ComponentMetrics & {
 const OButton = ({
   top,
   bottom,
+  backgroundWhite,
   label = 'Button',
   onPress = () => {},
   loading = false,
@@ -45,21 +50,32 @@ const OButton = ({
 
   if (loading) disabled = true
 
+  const buttonShadow: ViewStyle = backgroundWhite ? {
+    shadowColor: '#19202023',
+    shadowOffset: {
+      width: dpi(20),
+      height: dpi(3)
+    },
+    shadowOpacity: 0,
+    shadowRadius: dpi(12),
+    elevation: 2
+  } : {}
+
   const buttonStyle: ViewStyle = {
     marginTop: top,
     marginBottom: bottom,
-    width: '100%',
     alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: disabled ? 'gray' : backgroundWhite ? colors.white_100 : colors.buttonRed,
+    borderColor: disabled ? 'gray' : backgroundWhite ? colors.white_100 : colors.buttonRed,
     borderRadius: dpi(10),
     borderWidth: dpi(0.5),
+    justifyContent: 'center',
     paddingVertical: dpi(4),
-    borderColor: disabled ? 'gray' : colors.buttonRed,
-    backgroundColor: disabled ? 'gray' : colors.buttonRed
+    width: '100%',
+    ...buttonShadow
   }
 
-
-  const buttonLabelColor = colors.black
+  const buttonLabelColor = backgroundWhite ? colors.black : colors.white_100
 
   return (
     <TouchableOpacity style={buttonStyle} onPress={() => onPress()} disabled={disabled}>

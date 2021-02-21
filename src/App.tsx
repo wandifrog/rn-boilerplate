@@ -1,9 +1,9 @@
 import React from 'react'
 import { Image, SafeAreaView, Text, View } from 'react-native'
-import Navigation from './App.navigation'
-import { images } from './constants/Images.constant'
 import { AppProvider } from './contexts/App.context'
 import { dpi } from './functions/Common.function'
+import images from './constants/Images.constant'
+import Navigation from './App.navigation'
 
 const App = () => {
   const [splashScreen, setSplashScreen] = React.useState(true)

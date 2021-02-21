@@ -1,8 +1,5 @@
 import globalTranslation from '../translations/Global.translation'
-import homeTranslation from '../translations/Home.translation'
-import myPokemonListTranslation from '../translations/MyPokemonList.translation'
-import pokemonDetailTranslation from '../translations/PokemonDetail.translation'
-import pokemonListTranslation from '../translations/PokemonList.translation'
+import loginTranslation from '../translations/Login.translation'
 import useApp from './App.hook'
 
 function useTranslation() {
@@ -11,10 +8,7 @@ function useTranslation() {
 
   const t = {
     global: globalTranslation[language],
-    home: homeTranslation[language],
-    myPokemonList: myPokemonListTranslation[language],
-    pokemonDetail: pokemonDetailTranslation[language],
-    pokemonList: pokemonListTranslation[language]
+    login: loginTranslation[language],
   }
 
   return { t, language }

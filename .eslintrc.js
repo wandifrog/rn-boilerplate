@@ -5,13 +5,13 @@ const ERR = 2 // Turn the rule on as an error (exit code will be 1)
 module.exports = {
   root: true,
   env: {
-    'es6': true
+    'es6': true,
   },
   extends: [
     '@react-native-community',
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended'
+    'plugin:react/recommended',
   ],
   plugins: [],
   reportUnusedDisableDirectives: true,
@@ -26,7 +26,7 @@ module.exports = {
     '@typescript-eslint/type-annotation-spacing': ERR,
     'array-element-newline': [ERR, 'consistent'],
     'arrow-parens': [ERR, 'always'],
-    'comma-dangle': [ERR, 'never'],
+    'comma-dangle': [ERR, 'only-multiline'],
     'comma-spacing': [ERR, { 'before': false, 'after': true }],
     'curly': [ERR, 'multi'],
     'eol-last': [WRN, 'always'],
@@ -42,6 +42,6 @@ module.exports = {
     'semi': [ERR, 'never'],
     'space-before-blocks': [ERR, 'always'],
     'space-before-function-paren': [ERR, 'never'],
-    'space-in-parens': [ERR, 'never']
-  }
+    'space-in-parens': [ERR, 'never'],
+  },
 }

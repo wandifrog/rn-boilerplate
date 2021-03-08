@@ -1,9 +1,9 @@
 import React from 'react'
-import { Image, SafeAreaView, Text, View } from 'react-native'
+import { Image, Text, View } from 'react-native'
 import { AppProvider } from './contexts/App.context'
 import { dpi } from './functions/Common.function'
 import images from './constants/Images.constant'
-import Navigation from './App.navigation'
+import Navigation from './Navigation'
 
 const App = () => {
   const [splashScreen, setSplashScreen] = React.useState(true)
@@ -12,18 +12,15 @@ const App = () => {
     setTimeout(() => setSplashScreen(false), 1200)
   }, [])
 
-  // persist storage
-
   return (
-    <SafeAreaView>
+    <React.Fragment>
       {splashScreen ? <SplashScreen /> : null}
       <AppProvider>
         {!splashScreen ? <Navigation /> : null}
       </AppProvider>
-    </SafeAreaView>
+    </React.Fragment>
   )
 }
-
 
 const SplashScreen = () => {
   // don't use Orbit components
@@ -70,5 +67,6 @@ const SplashScreen = () => {
     </View>
   )
 }
+
 
 export default App

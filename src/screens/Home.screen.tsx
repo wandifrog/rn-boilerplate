@@ -1,7 +1,7 @@
 import React from 'react'
 import { ScrollView, Text, TouchableOpacity } from 'react-native'
 import OText from '../components/OText'
-import useNavigation from '../hooks/Navigation.hook'
+import useNavigation from '../hooks/Navigation_old.hook'
 
 const HomeScreen = () => {
   const navigation = useNavigation()

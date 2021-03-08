@@ -12,6 +12,8 @@ const App = () => {
     setTimeout(() => setSplashScreen(false), 1200)
   }, [])
 
+  // persist storage
+
   return (
     <SafeAreaView>
       {splashScreen ? <SplashScreen /> : null}

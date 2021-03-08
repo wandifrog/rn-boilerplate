@@ -26,4 +26,5 @@ type Navigation = {
 type Screens =
 | 'HomeScreen'
 | 'LoginScreen'
+| 'Login2Screen'
 | 'DashboardScreen'

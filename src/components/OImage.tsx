@@ -31,7 +31,7 @@ const OImage = ({
     height
   }
 
-  return <Image width={width} height={height}
+  return <Image width={width} height={height} fadeDuration={250}
     source={source} style={imageStyle} {...props} />
 }
 

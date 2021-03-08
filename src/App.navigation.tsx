@@ -1,10 +1,13 @@
 import React from 'react'
+import { BackHandler } from 'react-native'
+import OView from './components/OView'
+import useApp from './hooks/App.hook'
+import useNavigation from './hooks/Navigation.hook'
 import DashboardScreen from './screens/Dashboard.screen'
 import HomeScreen from './screens/Home.screen'
 import LoginScreen from './screens/Login.screen'
-import useApp from './hooks/App.hook'
-import { BackHandler } from 'react-native'
-import useNavigation from './hooks/Navigation.hook'
+import Login2Screen from './screens/Login2.screen'
+
 
 const Navigation = () => {
   const [state] = useApp()
@@ -35,17 +38,24 @@ const Navigation = () => {
 const PresentationScreen = ({
   screen
 }: { screen: Screens }) => {
-
-  switch (screen) {
-    case 'HomeScreen':
-      return <HomeScreen />
-    case 'LoginScreen':
-      return <LoginScreen />
-    case 'DashboardScreen':
-      return <DashboardScreen />
-    default:
-      throw new Error('Screen not found')
-  }
+  // alert(screen)
+  return (
+    <React.Fragment>
+      <OView style={{ left: screen === 'HomeScreen' ? 0 : '100%', position: 'absolute' }}>
+        <HomeScreen />
+      </OView>
+      <OView style={{ left: screen === 'LoginScreen' ? 0 : '100%', position: 'absolute' }}>
+        <LoginScreen />
+      </OView>
+      <OView style={{ left: screen === 'Login2Screen' ? 0 : '100%', position: 'absolute' }}>
+        <Login2Screen />
+      </OView>
+      <OView style={{ left: screen === 'DashboardScreen' ? 0 : '100%', position: 'absolute' }}>
+        <DashboardScreen />
+      </OView>
+    </React.Fragment>
+  )
 }
+
 
 export default Navigation

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { BackHandler } from 'react-native'
 import { arrayIsEmpty } from '../functions/Common.function'
 import useApp from './App.hook'
@@ -16,6 +17,20 @@ function useNavigation() {
       ...navigation,
       current,
       stacks: newStacks
+    }
+    dispatch({ type: 'SET_NAVIGATION', navigation: newNavigation })
+  }
+
+  function navigate(newScreen: Screens, params = null) {
+    // check current stack before push
+    const cloneNavigation = { ...navigation }
+
+    const stacks = [...navigation.stacks, newScreen]
+    const newNavigation: Navigation = {
+      ...navigation,
+      params,
+      current: newScreen,
+      stacks
     }
     dispatch({ type: 'SET_NAVIGATION', navigation: newNavigation })
   }
@@ -44,7 +59,7 @@ function useNavigation() {
     dispatch({ type: 'SET_NAVIGATION', navigation: newNavigation })
   }
 
-  return { goBack, push, forcePush }
+  return { goBack, navigate, push, forcePush }
 }
 
 export default useNavigation

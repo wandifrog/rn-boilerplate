@@ -13,23 +13,23 @@ import OText from '../components/OText'
 import OView from '../components/OView'
 
 
-const LoginScreen = () => {
+const Login2Screen = () => {
   const { t } = useTranslation()
   const colors = useTheme()
   const navigation = useNavigation()
 
   return (
-    <ScrollView contentContainerStyle={{ height: screenHeight, width: screenWidth }} >
+    <ScrollView contentContainerStyle={{ height: '100%' }} >
       <OFlexRow top={screenHeight / 5} justify="center">
         <OImage source={images.orbitLogo} width={dpi(54)} height={dpi(24)} resizeMode="contain" />
       </OFlexRow>
-      <OText top={dpi(4)} size={dpi(17)} center bold>{t.global.welcome}</OText>
+      <OText top={dpi(4)} size={dpi(17)} center bold>hello world</OText>
       <OView top={screenHeight / 4} paddingHorizontal={dpi(12)} >
-        <OButton bottom={dpi(9)} label={t.global.login} onPress={() => navigation.push('DashboardScreen')} />
+        <OButton bottom={dpi(9)} label="Login" />
         <OFlexRow bottom={dpi(8)} justify="center">
           <OText right={dpi(2)} size={dpi(6)}>{t.login.dontHaveOrbit}</OText>
           <TouchableOpacity>
-            <OText size={dpi(6)} color="red" bold>{t.global}</OText>
+            <OText size={dpi(6)} color="red" bold>{t.global.buyNow}</OText>
           </TouchableOpacity>
         </OFlexRow>
         <OText size={dpi(7)} color={colors.grey_100} center>{t.global.or}</OText>
@@ -45,4 +45,4 @@ const LoginScreen = () => {
   )
 }
 
-export default LoginScreen
+export default Login2Screen

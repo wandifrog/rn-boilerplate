@@ -9,6 +9,7 @@ import LoginScreen from './screens/Login.screen'
 import Login2Screen from './screens/Login2.screen'
 
 
+// Old navigation (create custom react native navigation from scratch)
 const Navigation = () => {
   const [state] = useApp()
   const navigation = useNavigation()

@@ -12,7 +12,7 @@ import OText from '../components/OText'
 import OView from '../components/OView'
 
 
-const Login = () => {
+const LoginScreen = () => {
   const { t } = useTranslation()
   const colors = useTheme()
 
@@ -43,4 +43,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default LoginScreen

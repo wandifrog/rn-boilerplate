@@ -13,13 +13,13 @@ export const fontSize = {
   /**
    * Font Size: 20px
    */
-  large: '20px',
+  large: 20,
   /**
-   * Font Size: 16px
+   * Font Size: 15px
    */
-  normal: '16px',
+  normal: 15,
   /**
-   * Font Size: 12px
+   * Font Size: 11px
    */
-  small: '12px'
+  small: 11
 }

@@ -1,16 +1,12 @@
 import React from 'react'
 import { FlexAlignType, View, ViewStyle } from 'react-native'
 
-type OFlexRowProps = ComponentMetrics & {
+type HStackProps = ComponentMetrics & {
   children: React.ReactNode
   /**
    * Align items
    */
   align?: FlexAlignType
-  /**
-   * Flex direction
-   */
-  flexDirection?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
   /**
    * Height
    */
@@ -34,21 +30,20 @@ type OFlexRowProps = ComponentMetrics & {
 }
 
 /**
- * Orbit flex component.
+ * Horizontal Stack component.
  * @example
- * <OFlex>
+ * <HStack>
  *   <OText>Hello</OText>
  *   <OText>wWrld</OText>
- * </OFlex>
+ * </HStack>
  */
-const OFlexRow = ({
+const HStack = ({
   children,
   top,
   right,
   bottom,
   left,
   align,
-  flexDirection = 'row',
   height,
   justify,
   padding,
@@ -57,7 +52,7 @@ const OFlexRow = ({
   style,
   width,
   ...props
-}: OFlexRowProps): JSX.Element => {
+}: HStackProps): JSX.Element => {
 
   const flexRowStyle: ViewStyle = {
     marginTop: top,
@@ -65,7 +60,7 @@ const OFlexRow = ({
     marginBottom: bottom,
     marginLeft: left,
     alignItems: align,
-    flexDirection,
+    flexDirection: 'row',
     height,
     justifyContent: justify,
     padding,
@@ -78,4 +73,4 @@ const OFlexRow = ({
   return <View style={flexRowStyle} {...props}>{children}</View>
 }
 
-export default OFlexRow
+export default HStack

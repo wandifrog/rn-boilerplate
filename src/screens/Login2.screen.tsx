@@ -7,7 +7,7 @@ import useNavigation from '../hooks/Navigation_old.hook'
 import useTheme from '../hooks/Theme.hook'
 import useTranslation from '../hooks/Translation.hook'
 import OButton from '../components/OButton'
-import OFlexRow from '../components/OFlexRow'
+import HStack from '../components/HStack'
 import OImage from '../components/OImage'
 import OText from '../components/OText'
 import OView from '../components/OView'
@@ -20,18 +20,18 @@ const Login2Screen = () => {
 
   return (
     <ScrollView contentContainerStyle={{ height: '100%' }} >
-      <OFlexRow top={screenHeight / 5} justify="center">
+      <HStack top={screenHeight / 5} justify="center">
         <OImage source={images.orbitLogo} width={dpi(54)} height={dpi(24)} resizeMode="contain" />
-      </OFlexRow>
+      </HStack>
       <OText top={dpi(4)} size={dpi(17)} center bold>hello world</OText>
       <OView top={screenHeight / 4} paddingHorizontal={dpi(12)} >
         <OButton bottom={dpi(9)} label="Login" />
-        <OFlexRow bottom={dpi(8)} justify="center">
+        <HStack bottom={dpi(8)} justify="center">
           <OText right={dpi(2)} size={dpi(6)}>{t.login.dontHaveOrbit}</OText>
           <TouchableOpacity>
             <OText size={dpi(6)} color="red" bold>{t.global.buyNow}</OText>
           </TouchableOpacity>
-        </OFlexRow>
+        </HStack>
         <OText size={dpi(7)} color={colors.grey_100} center>{t.global.or}</OText>
         <OView style={{ zIndex: 10 }}>
           <OButton top={dpi(4)} backgroundWhite label={t.login.buyOrbitFromOutlet} />

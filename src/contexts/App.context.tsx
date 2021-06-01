@@ -3,12 +3,6 @@ import React from 'react'
 const initialState: AppState = {
   darkMode: false,
   language: 'id',
-  navigation: {
-    current: 'HomeScreen',
-    params: null,
-    default: 'HomeScreen',
-    stacks: []
-  },
   modemData: {},
   memberData: {},
   screen: {} // screen || module || feature || flow
@@ -25,9 +19,6 @@ function appReducer(prevState: AppState, action: AppAction): AppState {
     }
     case 'CHANGE_LANGUAGE': {
       return { ...prevState, language: prevState.language === 'id' ? 'en' : 'id' }
-    }
-    case 'SET_NAVIGATION': {
-      return { ...prevState, navigation: action.navigation }
     }
     case 'SET_MODEM_DATA': {
       return { ...prevState, modemData: action.modemData }

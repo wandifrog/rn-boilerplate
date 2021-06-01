@@ -52,7 +52,6 @@ const OText = ({
     color: color || colors.text,
     fontFamily: bold ? 'Muli-Bold' : 'Muli-Regular',
     fontSize: size,
-    // fontWeight: bold ? 'bold' : 'normal',
     textAlign: center ? 'center' : undefined,
     marginTop: top,
     marginRight: right,
